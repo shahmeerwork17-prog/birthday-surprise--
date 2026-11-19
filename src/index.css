@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-handwriting: "Dancing Script", "Cormorant Garamond", cursive;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root {
+  --color-obsidian: #070406;
+  --color-burgundy: #4a0e1b;
+  --color-crimson: #b91c3c;
+  --color-blush: #f9a8d4;
+  --color-champagne: #e6c596;
+  --color-ivory: #fbf6ee;
+  --color-ink: #2a1118;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-obsidian);
+    color: #fdf2f6;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--color-obsidian);
+  }
+}
+
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-letter {
+  font-family: var(--font-handwriting);
+}
+
+.name-glow {
+  text-shadow:
+    0 0 24px rgba(244, 114, 182, 0.55),
+    0 0 56px rgba(190, 18, 60, 0.45),
+    0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.paper-stationery {
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(230, 197, 150, 0.14) 0%, transparent 55%),
+    radial-gradient(circle at 80% 85%, rgba(244, 114, 182, 0.08) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(120, 72, 82, 0.025) 0px,
+      rgba(120, 72, 82, 0.025) 1px,
+      transparent 1px,
+      transparent 34px
+    );
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 5.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gentle-float {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
